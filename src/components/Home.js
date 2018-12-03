@@ -1,5 +1,5 @@
 import {find, findIndex, merge} from 'lodash';
-import * as React from 'react';
+import React from 'react';
 
 import Movies from './Movies';
 import Panel from './Panel';
@@ -14,22 +14,7 @@ import {
 } from '../queries/movies';
 import * as api from '../utils/api';
 
-interface ComponentState {
-  data: Array<{
-    label: string,
-    rating?: number,
-    id: number,
-    description?: string
-  }>,
-  inputVal: string,
-  selectedId: null | number
-}
-
-interface ComponentProps {
-  match: any
-}
-
-class Home extends React.Component<ComponentProps, ComponentState> {
+class Home extends React.Component {
   state = {
     data: [],
     inputVal: '',
@@ -56,7 +41,7 @@ class Home extends React.Component<ComponentProps, ComponentState> {
   addMovie = () => {
     const {inputVal} = this.state;
 
-    api.executeQuery<createMovieParams>(createMovie, {
+    api.executeQuery(createMovie, {
       id: String(this.state.data.length),
       label: inputVal || `new movie - ${this.state.data.length}`,
       rating: 1,
@@ -75,7 +60,7 @@ class Home extends React.Component<ComponentProps, ComponentState> {
     if (movieIndex > -1) {
       const movie = this.state.data[movieIndex];
 
-      api.executeQuery<updateMovieParams>(updateMovie, {...movie, rating: val})
+      api.executeQuery(updateMovie, {...movie, rating: val})
           .then((payload) => {
             newData[movieIndex] = merge(newData[movieIndex], payload.data.updateMovie);
             this.setState({
@@ -89,7 +74,7 @@ class Home extends React.Component<ComponentProps, ComponentState> {
     this.setState({
       data: this.state.data.filter(movie => movie.id !== id)
     });
-    api.executeQuery<removeMovieParams>(removeMovie, { id });
+    api.executeQuery(removeMovie, { id });
   };
 
   clearAll = () => {

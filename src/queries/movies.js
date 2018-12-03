@@ -34,13 +34,6 @@ export const fetchMovieDetails = gql`
   }
 `;
 
-export interface createMovieParams {
-  id: String
-  label: String
-  rating: Number
-  description: String
-}
-
 export const createMovie = gql`
   ${movieFragment}
   mutation createMovie($id: ID!, $label: String!, $rating: Int!, $description: String!) {
@@ -50,13 +43,6 @@ export const createMovie = gql`
   }
 `;
 
-export interface updateMovieParams {
-  id: String
-  label: String
-  rating: Number
-  description: String
-}
-
 export const updateMovie = gql`
   ${fullMovieFragment}
     mutation updateMovie($id: ID!, $label: String!, $rating: Int!, $description: String!) {
@@ -65,10 +51,6 @@ export const updateMovie = gql`
         }
     }
 `;
-
-export interface removeMovieParams {
-  id: String
-}
 
 export const removeMovie = gql`
   mutation removeMovie($id: ID!) {

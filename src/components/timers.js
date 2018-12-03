@@ -1,12 +1,7 @@
-import * as React from 'react';
-import Timer = NodeJS.Timer;
+import React from 'react';
 
-interface ComponentState {
-  count: number
-}
-
-class Timers extends React.Component<{}, ComponentState> {
-  intervalId: Timer;
+class Timers extends React.Component {
+  intervalId;
 
   state = {
     count: 0

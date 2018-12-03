@@ -1,12 +1,7 @@
-import * as cx from 'classnames';
-import * as React from 'react';
+import cx from 'classnames';
+import React from 'react';
 
-interface ComponentProps {
-  amount: number,
-  updateRating: (val) => void
-}
-
-const Rating = (props: ComponentProps) => (
+const Rating = (props) => (
   <div className="rating">
     {
       [1, 2, 3, 4, 5].map(val => {

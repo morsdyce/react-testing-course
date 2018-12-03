@@ -1,15 +1,11 @@
-interface User {
-  isAdmin: boolean
-}
-
 const users = {
   'joe': { isAdmin: true },
   'james': { isAdmin: false },
   'jimmy': { isAdmin: false }
 };
 
-function getUserPermissions(userName: string, callback) {
-  const user: User = users[userName];
+function getUserPermissions(userName, callback) {
+  const user = users[userName];
 
   if (!user) {
     callback({ error: 'Users does not exist', errorCode: 12 });

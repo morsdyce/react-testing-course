@@ -1,16 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 
-interface ComponentProps {
-  movie: {
-    label: string,
-    rating: number,
-    id: number
-  },
-  selectMovie: (id) => void,
-  removeMovie: (id) => void
-}
-
-const Movie = (props: ComponentProps) => (
+const Movie = (props) => (
   <li onClick={() => props.selectMovie(props.movie.id)}>
     <div>{props.movie.label}</div>
     <div
