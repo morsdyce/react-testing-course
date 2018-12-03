@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TranslateAsChild/> should render 1`] = `
-<Component>
-  <Component
+<TranslateAsChild>
+  <FormattedMessage
     id="fake.id"
   >
     <span>
       fake.id
     </span>
-  </Component>
-</Component>
+  </FormattedMessage>
+</TranslateAsChild>
 `;

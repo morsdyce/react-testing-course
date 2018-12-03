@@ -1,9 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { shallow } from 'enzyme';
 import Home from "../../components/Home";
 import {executeQuery} from "../../utils/api";
 import Movies from "../../components/Movies";
-import Mock = jest.Mock;
 import Panel from "../../components/Panel";
 
 /*
@@ -49,11 +48,11 @@ const setup = ({ id = null } = {}) => ({
   There are more functions like these below that help us return the correct response
   for each api type.
  */
-function setupFetchMovies(includeExtraData: boolean) {
+function setupFetchMovies(includeExtraData) {
   const extraData = {
     description: 'dummy description', rating: 2
   };
-  const payload: any = {
+  const payload = {
     data: {
       allMovies: [
         {id: 0, label: 'movie title'}
@@ -65,7 +64,7 @@ function setupFetchMovies(includeExtraData: boolean) {
     payload.data.allMovies[0] = { ...payload.data.allMovies[0], ...extraData };
   }
 
-  const executeQueryMock = executeQuery as Mock;
+  const executeQueryMock = executeQuery;
   executeQueryMock.mockResolvedValue(payload);
 
   return payload;
@@ -80,7 +79,7 @@ function setupMovieExtraDetailsFetch() {
       }
     }
   };
-  const executeQueryMock = executeQuery as Mock;
+  const executeQueryMock = executeQuery;
   executeQueryMock.mockResolvedValue(payload);
 
   return payload;
@@ -98,7 +97,7 @@ function setupCreateMovie() {
     }
   };
 
-  (executeQuery as Mock).mockResolvedValue(payload);
+  executeQuery.mockResolvedValue(payload);
 
   return payload;
 }
@@ -106,7 +105,7 @@ function setupCreateMovie() {
 describe('<Home/>', () => {
 
   beforeEach(() => {
-    (executeQuery as Mock).mockClear();
+    executeQuery.mockClear();
   });
 
   test('should render', () => {
@@ -146,7 +145,7 @@ describe('<Home/>', () => {
 
     // clear the mock calls until this point so we can assert the api spy easily without
     // having to check for specific calls.
-    (executeQuery as Mock).mockClear();
+    executeQuery.mockClear();
     setupMovieExtraDetailsFetch();
 
     selectMovie(0);
@@ -170,7 +169,7 @@ describe('<Home/>', () => {
     await flushPromises();
     const selectMovie = component.find(Movies).prop('selectMovie');
 
-    (executeQuery as Mock).mockClear();
+    executeQuery.mockClear();
     selectMovie(0);
     expect(executeQuery).not.toHaveBeenCalled();
 
@@ -187,7 +186,7 @@ describe('<Home/>', () => {
         <Home {...props} />
     );
 
-    const payload: any = setupCreateMovie();
+    const payload = setupCreateMovie();
 
     const updateValue = component.find(Movies).prop('updateValue');
     const addMovie = component.find(Movies).prop('addMovie');
@@ -257,7 +256,7 @@ describe('<Home/>', () => {
     const selectMovie = component.find(Movies).prop('selectMovie');
     const clearSelected = component.find(Panel).prop('clearSelected');
 
-    (executeQuery as Mock).mockClear();
+    executeQuery.mockClear();
     selectMovie(0);
 
     component.update();

@@ -13,11 +13,11 @@ exports[`<Movies/> should render with movies 1`] = `
     onChange={[Function]}
     value=""
   />
-  <Component
+  <Button
     onClick={[Function]}
   >
     add movie
-  </Component>
+  </Button>
   <ul>
     <Movie
       key="1"
@@ -82,11 +82,11 @@ exports[`<Movies/> should render without movies 1`] = `
     onChange={[Function]}
     value=""
   />
-  <Component
+  <Button
     onClick={[Function]}
   >
     add movie
-  </Component>
+  </Button>
   <div
     className="empty"
   >
