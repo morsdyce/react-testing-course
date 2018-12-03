@@ -1,10 +1,5 @@
-interface APIOptions {
-  url: string
-  method: string
-}
-
 // Callback based API
-export function fetchDataCallback(api: Function, options: APIOptions, callback: Function) {
+export function fetchDataCallback(api, options, callback) {
   // simulate api request delay
   setTimeout(() => {
     callback(api(options))
@@ -12,7 +7,7 @@ export function fetchDataCallback(api: Function, options: APIOptions, callback: 
 }
 
 // Promise based API
-export function fetchDataPromise(api: Function, options: APIOptions) {
+export function fetchDataPromise(api, options) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(api(options));

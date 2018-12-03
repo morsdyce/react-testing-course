@@ -1,20 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import Rating from './common/Rating';
 // import {fetchMovieDetails} from "../queries/movies";
 // import api from '../utils/api';
 
-interface ComponentProps {
-  movie: {
-    label: string,
-    rating: number,
-    id: number,
-    description: string
-  },
-  updateRating: (id, val) => void,
-  clearSelected: () => void
-}
-
-const Panel = (props: ComponentProps) => {
+const Panel = (props) => {
   if (!props.movie) {
     return null;
   }

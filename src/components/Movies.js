@@ -3,21 +3,7 @@ import Button from './common/Button';
 import Input from './common/Input';
 import Movie from './Movie';
 
-interface ComponentProps {
-  data: Array<{
-    label: string,
-    rating: number,
-    id: number
-  }>,
-  addMovie: () => void,
-  clearAll: () => void,
-  removeMovie: (id) => void,
-  selectMovie: (id) => void,
-  updateValue: (val) => void,
-  inputVal: string
-}
-
-const Movies = (props: ComponentProps) => (
+const Movies = (props) => (
   <div className="movies">
     <div className="header">my favorite movies</div>
 
