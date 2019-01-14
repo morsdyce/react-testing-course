@@ -1,4 +1,4 @@
-// import { fetchDataCallback, fetchDataPromise } from '../02-async-tests'
+// import { fetchDataCallback, fetchDataPromise } from '../../../src/exercise/02-async-tests'
 
 /*
   create a test that checks fetchDataCallback and fetchDataPromise and make sure you wait until

@@ -1,4 +1,4 @@
-// import { isCurrentUserAdmin } from '../03-mocking-modules';
+// import { isCurrentUserAdmin } from '../../../src/exercise/03-mocking-modules';
 
 /*
   In this test we have a function that depends on another module result

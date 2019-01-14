@@ -1,4 +1,4 @@
-// import getUserPermissions from '../01-mocking-functions';
+// import getUserPermissions from '../../../src/exercise/01-mocking-functions';
 
 /*
   Create a test that checks the getUserPermissions function.
